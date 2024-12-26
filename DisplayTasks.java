@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+package TaskManager;
 public class DisplayTasks implements Runnable{
 
 
@@ -14,6 +15,7 @@ public class DisplayTasks implements Runnable{
     public void run(){
         while(running){
             displayTasks(tasks);
+            displayChoices();
             try {
                 Thread.sleep(50);
             } catch (InterruptedException e) {
@@ -25,11 +27,22 @@ public class DisplayTasks implements Runnable{
     public void displayTasks(ArrayList<Task> tasks) {
         
         System.out.println("===================================");
-        for (Task task : tasks) {
-            System.out.println(task.show());
-        }
         System.out.println("===================================");
 
+    }
+
+    public void displayChoices(){
+
+        Scanner scanner = new Scanner(System.in);
+        int choices = 0;
+
+        while(true){
+            System.out.println("Input 1 : new task, 2 : modif task");
+            if(scanner.hasNextInt()){
+                choices = scanner.nextInt();
+
+            }
+        }
     }
 
 
